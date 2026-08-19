@@ -1,6 +1,7 @@
 [Unit]
 Description=Shakehands input debounce service
 After=systemd-udevd.service
+Documentation=https://github.com/bulgadev/shakehands-open
 
 [Service]
 Type=simple
@@ -15,6 +16,11 @@ ProtectHome=yes
 ProtectSystem=strict
 StateDirectory=shakehands
 ReadWritePaths=/dev/input /dev/uinput
+# The service still requires root on the currently supported installations.
+# Review device permissions and these boundaries before deploying it broadly.
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
 
 [Install]
 WantedBy=multi-user.target

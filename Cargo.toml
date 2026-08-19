@@ -2,6 +2,7 @@
 name = "shakehands"
 version = "0.1.0"
 edition = "2024"
+rust-version = "1.85"
 description = "A Linux evdev debounce service for flaky input devices"
 license = "MIT"
 

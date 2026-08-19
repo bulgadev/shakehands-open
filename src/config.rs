@@ -154,10 +154,8 @@ mod tests {
 
     #[test]
     fn middle_options_default_off_and_parse() {
-        let bare: Config = toml::from_str(
-            "[[device]]\nrole = 'mouse'\nname_contains = 'G502'",
-        )
-        .unwrap();
+        let bare: Config =
+            toml::from_str("[[device]]\nrole = 'mouse'\nname_contains = 'G502'").unwrap();
         assert!(!bare.filter.block_middle);
         assert_eq!(bare.filter.middle_min_hold_ms, 0);
 

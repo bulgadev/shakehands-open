@@ -221,10 +221,7 @@ impl MouseFilter {
             0 => self.on_middle_release(now),
             _ => Decision::Forward,
         };
-        Outcome {
-            leading,
-            decision,
-        }
+        Outcome { leading, decision }
     }
 
     /// If a deferred middle press has been held long enough, emit it.
