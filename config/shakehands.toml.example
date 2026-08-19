@@ -1,0 +1,32 @@
+# Copy to /etc/shakehands/config.toml and refine device identifiers using
+# `shakehands devices`.  Multiple matchers on a rule must all match.
+
+[filter]
+# Suppress only a re-press whose preceding key hold was a tiny bounce pulse.
+keyboard_bounce_pulse_ms = 12
+keyboard_repress_gap_ms = 45
+scroll_to_middle_ms = 250
+middle_to_middle_ms = 350
+# Drop every middle click (paste / free-scroll). Use when the switch is dead.
+block_middle = false
+# Only emit middle after held this long (ms). 0 = off. Try 80–120 for chatter.
+middle_min_hold_ms = 80
+
+[capture]
+# While enabled, the service writes one aggregate timing report after five minutes.
+# It records only numeric key codes and duration histograms, never typed text.
+enabled = true
+duration_seconds = 300
+keyboard_timing_report_path = "/var/lib/shakehands/keyboard-timing.json"
+
+[[device]]
+role = "keyboard"
+by_id_contains = "usb-SONiX_AK820-event-kbd"
+vendor_id = 0x0c45
+product_id = 0x8009
+
+[[device]]
+role = "mouse"
+by_id_contains = "usb-Logitech_G502_HERO_Gaming_Mouse_207432D43342-event-mouse"
+vendor_id = 0x046d
+product_id = 0xc08b

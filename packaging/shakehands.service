@@ -1,0 +1,20 @@
+[Unit]
+Description=Shakehands input debounce service
+After=systemd-udevd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/shakehands daemon --config /etc/shakehands/config.toml
+Restart=always
+RestartSec=2
+User=root
+Group=root
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=strict
+StateDirectory=shakehands
+ReadWritePaths=/dev/input /dev/uinput
+
+[Install]
+WantedBy=multi-user.target
