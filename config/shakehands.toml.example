@@ -13,20 +13,22 @@ block_middle = false
 middle_min_hold_ms = 80
 
 [capture]
-# While enabled, the service writes one aggregate timing report after five minutes.
-# It records only numeric key codes and duration histograms, never typed text.
-enabled = true
+# Capture is opt-in. While enabled, the service writes one aggregate timing
+# report after five minutes. It records numeric key codes and duration
+# histograms, never typed text. Review the privacy implications before enabling.
+enabled = false
 duration_seconds = 300
 keyboard_timing_report_path = "/var/lib/shakehands/keyboard-timing.json"
 
 [[device]]
 role = "keyboard"
-by_id_contains = "usb-SONiX_AK820-event-kbd"
-vendor_id = 0x0c45
-product_id = 0x8009
+# Replace these placeholders with identifiers from `shakehands devices`.
+by_id_contains = "REPLACE_WITH_KEYBOARD_ID"
+vendor_id = 0x0000
+product_id = 0x0000
 
 [[device]]
 role = "mouse"
-by_id_contains = "usb-Logitech_G502_HERO_Gaming_Mouse_207432D43342-event-mouse"
-vendor_id = 0x046d
-product_id = 0xc08b
+by_id_contains = "REPLACE_WITH_MOUSE_ID"
+vendor_id = 0x0000
+product_id = 0x0000
