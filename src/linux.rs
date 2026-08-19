@@ -1,8 +1,6 @@
 use crate::capture::KeyboardTimingCapture;
 use crate::config::{CaptureConfig, Config, DeviceRole, DeviceRule};
-use crate::filter::{
-    Decision, KeyboardFilter, MouseFilter, Outcome, RawEvent, SuppressionReason,
-};
+use crate::filter::{Decision, KeyboardFilter, MouseFilter, Outcome, RawEvent, SuppressionReason};
 use anyhow::{Context, Result};
 use evdev::uinput::VirtualDevice;
 use evdev::{Device, EventType, InputEvent};
